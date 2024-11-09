@@ -47,7 +47,7 @@ class GameManager {
                     else {
                         console.log("player 2");
                     }
-                    game.makeMove(socket, message.move);
+                    game.makeMove(socket, message.payload.move);
                 }
             }
         });

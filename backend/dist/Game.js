@@ -6,7 +6,8 @@ const Messages_1 = require("./Messages");
 class Game {
     constructor(player1, player2) {
         this.makeMove = (socket, move) => {
-            console.log("moves count", this.movesCount);
+            // console.log("moves count", this.movesCount);
+            console.log("move it is", move);
             if (this.movesCount % 2 === 0 && socket !== this.player1) {
                 console.log("early return 1");
                 return;

@@ -49,7 +49,7 @@ export class GameManager {
                 if(game) {
                     if(game.player1 === socket) { console.log("player 1"); }
                     else { console.log("player 2"); }
-                    game.makeMove(socket, message.move);
+                    game.makeMove(socket, message.payload.move);
                 }
             }
         });
