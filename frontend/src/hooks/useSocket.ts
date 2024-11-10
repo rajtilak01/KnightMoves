@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react"
 
-const WS_URL = process.env.BASE_URL_BACKEND;
+// const WS_URL =  "https://knightmoves.onrender.com"
+const WS_URL = import.meta.env.VITE_BASE_URL_BACKEND;
+
+
+
 
 export const useSocket = () => {
     const [socket, setSocket] = useState<WebSocket | null>(null);
@@ -10,6 +14,7 @@ export const useSocket = () => {
             console.error("WebSocket URL is not defined.");
             return;  
         }
+        // console.log("Ws url", WS_URL);
 
         const ws = new WebSocket(WS_URL);
         console.log("WebSocket connection established:", ws);

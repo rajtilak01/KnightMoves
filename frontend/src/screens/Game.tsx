@@ -11,7 +11,7 @@ function Game() {
   const [board, setBoard] = useState(chess.board());
   const [started, setStarted] = useState<boolean>(false);
 
-  console.log("socket thing is it", socket);
+  // console.log("socket thing is it", socket);
   useEffect(() => {
     if (!socket) return;
 
