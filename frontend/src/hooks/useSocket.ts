@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 
-// const WS_URL =  "https://knightmoves.onrender.com"
 const WS_URL = import.meta.env.VITE_BASE_URL_BACKEND;
 
 
