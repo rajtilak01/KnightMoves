@@ -4,6 +4,7 @@ import ChessBoard from "../components/ChessBoard";
 import { useSocket } from "../hooks/useSocket";
 import { GAME_OVER, INIT_GAME, MOVE } from "../types/message";
 import { Chess } from "chess.js";
+import Loading from "./Loading";
 
 function Game() {
   const socket = useSocket();
@@ -38,33 +39,34 @@ function Game() {
     };
   }, [socket]);
 
-  if (!socket) return <div>Connecting.....</div>;
-  return (
-    <div className="justify-center flex">
-      <div className="pt-8 max-w-screen-lg ">
-        <div className="grid grid-cols-6 gap-4">
-          <div className="col-span-4 bg-red-200 w-full flex justify-center">
-            <ChessBoard chess={chess} setBoard={setBoard} socket={socket} board={board} />
-          </div>
-          <div className="col-span-2 bg-slate-800 flex justify-center items-center">
-            <div className="">
-             {!started && <Button
-                onClick={() =>
-                  socket?.send(
-                    JSON.stringify({
-                      type: INIT_GAME,
-                    })
-                  )
-                }
-              >
-                Start Game
-              </Button>}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+  // if (!socket) 
+    return <Loading/>;
+  // return (
+  //   <div className="justify-center flex">
+  //     <div className="pt-8 max-w-screen-lg ">
+  //       <div className="grid grid-cols-6 gap-4">
+  //         <div className="col-span-4 bg-red-200 w-full flex justify-center">
+  //           <ChessBoard chess={chess} setBoard={setBoard} socket={socket} board={board} />
+  //         </div>
+  //         <div className="col-span-2 bg-slate-800 flex justify-center items-center">
+  //           <div className="">
+  //            {!started && <Button
+  //               onClick={() =>
+  //                 socket?.send(
+  //                   JSON.stringify({
+  //                     type: INIT_GAME,
+  //                   })
+  //                 )
+  //               }
+  //             >
+  //               Start Game
+  //             </Button>}
+  //           </div>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   </div>
+  // );
 }
 
 export default Game;
